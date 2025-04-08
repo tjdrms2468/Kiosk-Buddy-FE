@@ -1,7 +1,10 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 export default function WaitingScreen() {
+  const navigation = useNavigation();
+
   return (
     <View style={styles.container}>
       <TouchableOpacity
@@ -24,7 +27,9 @@ export default function WaitingScreen() {
         <Text style={styles.buttonText}>비회원 이용</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity>
+      <TouchableOpacity
+        onPress={() => navigation.navigate('Signup')}
+      >
         <Text style={styles.signupText}>회원가입</Text>
       </TouchableOpacity>
     </View>

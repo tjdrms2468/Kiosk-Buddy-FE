@@ -1,22 +1,25 @@
-import { registerRootComponent } from 'expo';
 import React from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
-import { NavigationContainer } from '@react-navigation/native';
+import { View, Text, StyleSheet } from 'react-native';
 
-import WaitingScreen from './screens/WaitingScreen';
-import SignupScreen from './screens/SignupScreen';
-
-const Stack = createStackNavigator();
-
-function App() {
+// 기본 내보내기 (default export) 하나만 사용
+export default function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Waiting">
-        <Stack.Screen name="Waiting" component={WaitingScreen} options={{ headerShown: false }} />
-        <Stack.Screen name="Signup" component={SignupScreen} options={{ headerShown: false }} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <View style={styles.container}>
+      <Text style={styles.text}>Hello, Expo!</Text>
+    </View>
   );
 }
 
-export default registerRootComponent(App);
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#fff',
+  },
+  text: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#333',
+  },
+});
